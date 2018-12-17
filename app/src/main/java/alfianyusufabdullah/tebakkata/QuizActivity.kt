@@ -45,7 +45,7 @@ class QuizActivity : AppCompatActivity() {
             if (answer == correctAnswer.toUpperCase()) {
 
                 quizCounter++
-                if (quizCounter == 4) {
+                if (quizCounter == 10) {
                     showAlertDialog(answerCounter) {
                         quizCounter = 0
                         answerCounter = 0
