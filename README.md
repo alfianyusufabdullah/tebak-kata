@@ -1,1 +1,1 @@
-tebak-kata
+Aplikasi Tebak Kata
