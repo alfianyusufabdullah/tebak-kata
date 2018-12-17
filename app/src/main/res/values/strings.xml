@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tebak Kata</string>
+    <string name="btn_text_retry">ULANG</string>
+    <string name="btn_text_answer">CEK JAWABAN</string>
 </resources>

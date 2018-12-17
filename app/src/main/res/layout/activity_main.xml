@@ -26,7 +26,7 @@
 
     </FrameLayout>
     <Button
-            android:text="ULANG"
+            android:text="@string/btn_text_retry"
             android:layout_width="0dp"
             android:layout_height="?actionBarSize"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toStartOf="@+id/btnCekJawaban"
             app:layout_constraintBottom_toBottomOf="parent"/>
     <Button
-            android:text="CEK JAWABAN!"
+            android:text="@string/btn_text_answer"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="0dp"
             android:layout_height="?actionBarSize"
