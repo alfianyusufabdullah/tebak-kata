@@ -112,7 +112,7 @@ class QuizActivity : AppCompatActivity() {
             generateText += it.toString()
         }
 
-        val layoutChain = ConstraintSet()
+        val constraintSet = ConstraintSet()
         for (index in 1..generateText.length) {
             val lparam = ConstraintLayout.LayoutParams(100, 100)
             val placeHolder = Placeholder(this).apply {
@@ -144,8 +144,8 @@ class QuizActivity : AppCompatActivity() {
                 addView(emptyView)
             }
 
-            layoutChain.clone(rootView)
-            layoutChain.apply {
+            constraintSet.clone(rootView)
+            constraintSet.apply {
                 setMargin(textLetter.id, ConstraintSet.END, 10)
                 setMargin(textLetter.id, ConstraintSet.START, 10)
                 setMargin(textLetter.id, ConstraintSet.TOP, 75)
@@ -185,7 +185,7 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
 
-            layoutChain.applyTo(rootView)
+            constraintSet.applyTo(rootView)
         }
 
         rootView.requestLayout()
