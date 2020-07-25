@@ -2,4 +2,5 @@
     <string name="app_name">Tebak Kata</string>
     <string name="btn_text_retry">ULANG</string>
     <string name="btn_text_answer">CEK JAWABAN</string>
+    <string name="text_tebak_kata">Tebak kata!</string>
 </resources>

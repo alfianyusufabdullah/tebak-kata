@@ -1,46 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rootView"
         tools:context=".QuizActivity">
 
+    <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="@string/text_tebak_kata"
+            android:textSize="42sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+            android:id="@+id/tvQuestion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/tvQuestion" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="42dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            android:textSize="20sp" android:textStyle="bold"/>
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/roboto_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            tools:text="@tools:sample/lorem" />
+
     <FrameLayout
+            android:id="@+id/frameAnswerForm"
             android:layout_width="0dp"
-            android:layout_height="70dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="16dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp" android:background="@drawable/bg_form_answer"
-            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/tvQuestion"
-            android:id="@+id/frameAnswerForm">
+            android:layout_height="60dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_form_answer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvQuestion">
 
     </FrameLayout>
+
     <Button
+            android:id="@+id/btnReset"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
             android:text="@string/btn_text_retry"
-            android:layout_width="0dp"
-            android:layout_height="?actionBarSize"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:visibility="gone"
-            android:id="@+id/btnReset" app:layout_constraintStart_toStartOf="parent"
+            android:visibility="visible"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnCekJawaban"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
+
     <Button
-            android:text="@string/btn_text_answer"
+            android:id="@+id/btnCekJawaban"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="0dp"
             android:layout_height="?actionBarSize"
-            android:visibility="gone"
-            android:id="@+id/btnCekJawaban" app:layout_constraintStart_toEndOf="@+id/btnReset"
+            android:background="@drawable/bg_word"
+            android:text="@string/btn_text_answer"
+            android:visibility="visible"
+            android:textColor="#fff"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toEndOf="@+id/btnReset"
+            android:layout_margin="16dp"/>
 </android.support.constraint.ConstraintLayout>
