@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
 import android.support.constraint.Placeholder
+import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
 import android.transition.TransitionManager
 import android.view.Gravity
@@ -54,13 +55,13 @@ class QuizActivity : AppCompatActivity() {
                         generateQuiz(quizData[quizCounter])
                     }
                 } else {
-                    showToast("Yeay! Benar")
+                    Snackbar.make(rootView, "Yeay! Jawaban kamu benar", Snackbar.LENGTH_LONG).show()
                     remove(correctAnswer)
                     generateQuiz(quizData[quizCounter])
                 }
 
             } else {
-                showToast("Salah Bosque!")
+                Snackbar.make(rootView, "Salah bosque!", Snackbar.LENGTH_LONG).show()
                 reset(correctAnswer)
             }
         }
@@ -128,7 +129,8 @@ class QuizActivity : AppCompatActivity() {
                 setTextColor(Color.WHITE)
                 gravity = Gravity.CENTER
                 text = generateText[index - 1].toString().toUpperCase()
-                textSize = 24.toFloat()
+                textSize = 18.toFloat()
+                setPadding(10, 10, 10, 10)
                 setOnClickListener(letterClickListener(correctAnswer, index))
             }
 
@@ -158,18 +160,47 @@ class QuizActivity : AppCompatActivity() {
                 connect(textLetter.id, ConstraintSet.TOP, frameAnswerForm.id, ConstraintSet.BOTTOM)
                 connect(emptyView.id, ConstraintSet.TOP, textLetter.id, ConstraintSet.BOTTOM)
                 connect(placeHolder.id, ConstraintSet.TOP, frameAnswerForm.id, ConstraintSet.TOP)
-                connect(placeHolder.id, ConstraintSet.BOTTOM, frameAnswerForm.id, ConstraintSet.BOTTOM)
+                connect(
+                    placeHolder.id,
+                    ConstraintSet.BOTTOM,
+                    frameAnswerForm.id,
+                    ConstraintSet.BOTTOM
+                )
 
                 when (index) {
                     1 -> {
-                        addToHorizontalChain(textLetter.id, ConstraintSet.PARENT_ID, textLetter.id + 1)
-                        addToHorizontalChain(placeHolder.id, ConstraintSet.PARENT_ID, placeHolder.id + 1)
-                        addToHorizontalChain(emptyView.id, ConstraintSet.PARENT_ID, emptyView.id + 1)
+                        addToHorizontalChain(
+                            textLetter.id,
+                            ConstraintSet.PARENT_ID,
+                            textLetter.id + 1
+                        )
+                        addToHorizontalChain(
+                            placeHolder.id,
+                            ConstraintSet.PARENT_ID,
+                            placeHolder.id + 1
+                        )
+                        addToHorizontalChain(
+                            emptyView.id,
+                            ConstraintSet.PARENT_ID,
+                            emptyView.id + 1
+                        )
                     }
                     correctAnswer.length -> {
-                        addToHorizontalChain(textLetter.id, textLetter.id - 1, ConstraintSet.PARENT_ID)
-                        addToHorizontalChain(placeHolder.id, placeHolder.id - 1, ConstraintSet.PARENT_ID)
-                        addToHorizontalChain(emptyView.id, emptyView.id - 1, ConstraintSet.PARENT_ID)
+                        addToHorizontalChain(
+                            textLetter.id,
+                            textLetter.id - 1,
+                            ConstraintSet.PARENT_ID
+                        )
+                        addToHorizontalChain(
+                            placeHolder.id,
+                            placeHolder.id - 1,
+                            ConstraintSet.PARENT_ID
+                        )
+                        addToHorizontalChain(
+                            emptyView.id,
+                            emptyView.id - 1,
+                            ConstraintSet.PARENT_ID
+                        )
                     }
                     else -> {
                         addToHorizontalChain(textLetter.id, textLetter.id - 1, textLetter.id + 1)
